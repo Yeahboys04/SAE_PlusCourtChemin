@@ -19,10 +19,25 @@ public class GrapheListe implements Graphe{
     public int getIndice(String n){
         int ind =0;
         for(int i =0;i<this.noeuds.size();i++){
-            if(this.noeuds.get(i).compareTo(n)==0){
+            if(this.noeuds.get(i).equals(n)){
                 ind = i;
             }
         }
         return ind;
+    }
+
+    public String toString() {
+        String res = "";
+        for (String noeud : noeuds) {
+            // On ajoute le nœud
+            res += noeud + " ->";
+            List<Arc> suivants = suivants(noeud);
+            for (Arc arc : suivants) {
+                // On ajoute les nœuds suivants
+                res += ' ' + arc.getDest() + '(' + arc.getCout() + ')';
+            }
+            res += '\n';
+        }
+        return res;
     }
 }
