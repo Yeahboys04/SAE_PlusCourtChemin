@@ -12,7 +12,8 @@ public class GrapheListe implements Graphe{
 
     @Override
     public List<Arc> suivants(String n) {
-        return null;
+        int nb = getIndice(n);
+        return adjacence.get(nb).getArcs();
     }
 
     public int getIndice(String n){
