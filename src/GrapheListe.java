@@ -5,6 +5,11 @@ public class GrapheListe implements Graphe{
     ArrayList<String> noeuds;
     ArrayList<Arcs> adjacence;
 
+    public GrapheListe(ArrayList<String> n,ArrayList<Arcs> a){
+        this.noeuds = n;
+        this.adjacence =a;
+    }
+
     @Override
     public ArrayList<String> listeNoeuds() {
         return noeuds;
