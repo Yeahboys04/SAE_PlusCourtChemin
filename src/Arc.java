@@ -6,4 +6,12 @@ public class Arc {
         this.dest = dest;
         this.cout = cout;
     }
+
+    public double getCout() {
+        return cout;
+    }
+
+    public String getDest() {
+        return dest;
+    }
 }
