@@ -12,5 +12,8 @@ public class Main {
         graphe.ajouterArc("C","A",19);
         System.out.println(graphe.toString());
 
+        BellmanFord bf = new BellmanFord();
+        Valeur v = bf.resoudre(graphe, "A");
+        System.out.println(v);
     }
 }
