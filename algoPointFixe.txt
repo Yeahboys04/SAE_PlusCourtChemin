@@ -1,0 +1,42 @@
+début
+    fonction pointFixe(g : Graphe, noeud : chaine)
+    début
+        départ <- 0
+        lDistanceNoeuds
+        nbNoeuds <- g.lDistanceNoeuds().size() - 1
+        pour i de 1 à nbNoeuds :
+            ajouterListe(lDistanceNoeuds, ∞)
+        fin pour
+        pareil <- faux
+        pour i de 1 à nbNoeuds :
+            noeudsSuivants <- lDistanceNoeuds.suivants()
+            min <- noeudsSuivants[1]
+            pour j de 2 à noeudsSuivants.size() :
+                si noeudsSuivants[j] < min :
+                    min <- noeudsSuivants[j]
+                fin si
+            fin pour
+            nvLDistanceNoeuds <- lDistanceNoeuds[i] + min
+        fin pour
+        tant que non pareil :
+            n <- 1
+            tant que lDistanceNoeuds[n] = nvLDistanceNoeuds[n] et n <= lDistanceNoeuds.size() :
+                n <- n+1
+            fin tant
+            si n > lDistanceNoeuds.size() :
+                pareil <- vrai
+            fin si
+            pour i de 1 à nbNoeuds :
+                lDistanceNoeuds <- nvLDistanceNoeuds
+                noeudsSuivants <- lDistanceNoeuds.suivants()
+                min <- noeudsSuivants.getFirst()
+                pour j de 2 à noeudsSuivants.size() :
+                    si noeudsSuivants[j] < min :
+                        min <- noeudsSuivants[j]
+                    fin si
+                fin pour
+                nvLDistanceNoeuds <- lDistanceNoeuds[i] + min
+            fin pour
+        fin tant
+    fin
+fin
