@@ -11,6 +11,13 @@ public class GrapheListe implements Graphe{
         this.adjacence =a;
     }
 
+    public GrapheListe() {
+        this.noeuds= new ArrayList<String>();
+        this.adjacence = new ArrayList<Arcs>();
+
+
+    }
+
     @Override
     public ArrayList<String> listeNoeuds() {
         return noeuds;
@@ -50,11 +57,19 @@ public class GrapheListe implements Graphe{
     public void ajouterArc(String depart, String destination, double cout) {
         int indArcDep = getIndice(depart);
         int indArcDes = getIndice(destination);
-        if (indArcDes != -1 && indArcDep != -1) {
-            Arcs dep = this.adjacence.get(indArcDep);
-            Arc des = new Arc(destination, cout);
-            dep.ajouterArc(des);
+        if(indArcDep ==-1){
+            this.noeuds.add(depart);
+            this.adjacence.add(new Arcs());
+            indArcDep =getIndice(depart);
         }
+        if(indArcDes == -1){
+            this.noeuds.add(destination);
+            this.adjacence.add(new Arcs());
+            indArcDes =getIndice(destination);
+        }
+        Arcs dep = this.adjacence.get(indArcDep);
+        Arc des = new Arc(destination, cout);
+        dep.ajouterArc(des);
 
     }
 }

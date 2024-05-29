@@ -54,6 +54,5 @@ public class GrapheListTest {
         assertEquals(2, liste.getFirst().getCout(), "Le nœud suivant devrait être à 3 de distance. ");
         assertEquals("A", liste.getLast().getDest(), "Le nœud suivant devrait être A. ");
         assertEquals(0.5, liste.getLast().getCout(), "Le nœud suivant devrait être à 0.5 de distance. ");
-        System.out.println(g);
     }
 }

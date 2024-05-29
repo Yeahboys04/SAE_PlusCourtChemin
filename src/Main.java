@@ -2,36 +2,14 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Arcs a = new Arcs();
-        Arcs b = new Arcs();
-        Arcs c = new Arcs();
-        Arcs d = new Arcs();
-        Arcs e = new Arcs();
 
-        d.ajouterArc(new Arc("C",10));
-        a.ajouterArc(new Arc("B",12));
-        d.ajouterArc(new Arc("B",23));
-        a.ajouterArc(new Arc("D",87));
-        e.ajouterArc(new Arc("D",43));
-        b.ajouterArc(new Arc("E",11));
-        c.ajouterArc( new Arc("A",19));
-
-
-        ArrayList<String> arcs = new ArrayList<>();
-        arcs.add("A");
-        arcs.add("B");
-        arcs.add("C");
-        arcs.add("D");
-        arcs.add("E");
-
-        ArrayList<Arcs> listArcs = new ArrayList<>();
-        listArcs.add(a);
-        listArcs.add(b);
-        listArcs.add(c);
-        listArcs.add(d);
-        listArcs.add(e);
-
-        GrapheListe graphe = new GrapheListe(arcs,listArcs);
+        GrapheListe graphe = new GrapheListe();
+        graphe.ajouterArc("D","C",10);
+        graphe.ajouterArc("A","B",12);
+        graphe.ajouterArc("A","D",87);
+        graphe.ajouterArc("E","D",43);
+        graphe.ajouterArc("B","E",11);
+        graphe.ajouterArc("C","A",19);
         System.out.println(graphe.toString());
 
     }
