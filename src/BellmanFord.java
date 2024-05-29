@@ -6,7 +6,6 @@ public class BellmanFord {
         Valeur v = new Valeur();
         v.setValeur(depart, 0);
         ArrayList<Double> lDistanceNoeuds = new ArrayList<Double>();
-        ArrayList<Double> nvLDistanceNoeuds = new ArrayList<Double>();
         List<String> listeNoeuds = g.listeNoeuds();
         int nbNoeuds = listeNoeuds.size();
         for (int i = 0; i < nbNoeuds; i++) {
@@ -14,19 +13,24 @@ public class BellmanFord {
             lDistanceNoeuds.add(Double.MAX_VALUE);
         }
         lDistanceNoeuds.set(g.getIndice(depart), 0.0);
+        ArrayList<Double> nvLDistanceNoeuds = new ArrayList<Double>(lDistanceNoeuds);
         boolean pareil = false;
         majDistances(g, nbNoeuds, listeNoeuds, lDistanceNoeuds, nvLDistanceNoeuds, v);
         while (! pareil) {
             int n = 0;
-            while (lDistanceNoeuds.get(n).equals(nvLDistanceNoeuds) && n < lDistanceNoeuds.size()) {
+            while (lDistanceNoeuds.get(n).equals(nvLDistanceNoeuds.get(n)) && n < lDistanceNoeuds.size() - 1) {
                 n++;
             }
-            if (n == lDistanceNoeuds.size()) {
+            if (n == lDistanceNoeuds.size() - 1) {
                 pareil = true;
             }
-            lDistanceNoeuds = nvLDistanceNoeuds;
+            for (int i = 0; i < lDistanceNoeuds.size(); i++) {
+                lDistanceNoeuds.set(i, nvLDistanceNoeuds.get(i));
+            }
             majDistances(g, nbNoeuds, listeNoeuds, lDistanceNoeuds, nvLDistanceNoeuds, v);
         }
+        v.setValeur(depart, 0.0);
+        return v;
     }
 
     private void majDistances(GrapheListe g, int nbNoeuds, List<String> listeNoeuds, ArrayList<Double> lDistanceNoeuds, ArrayList<Double> nvLDistanceNoeuds, Valeur v) {
@@ -37,19 +41,9 @@ public class BellmanFord {
                 if (distance < lDistanceNoeuds.get(g.getIndice(arc.getDest()))) {
                     nvLDistanceNoeuds.set(g.getIndice(arc.getDest()), distance);
                     v.setValeur(arc.getDest(), distance);
-                    v.setParent(listeNoeuds.get(i), arc.getDest());
+                    v.setParent(arc.getDest(), listeNoeuds.get(i));
                 }
             }
         }
     }
 }
-
-/*
-si on commence par A :
-B est placé à 12 et D est passé à 87
-puis E est passé à 12 + 11 (23)
-puis C est passé à 87 + 10 (97)
-puis on compare E + 43 = 23 + 43 = 66 avec D (87)
-comme passer par E est plus court D est passé à 66
-on recalcule C 66 + 10 = 76
- */

@@ -34,5 +34,8 @@ public class Main {
         GrapheListe graphe = new GrapheListe(arcs,listArcs);
         System.out.println(graphe.toString());
 
+        BellmanFord bf = new BellmanFord();
+        Valeur v = bf.resoudre(graphe, "A");
+        System.out.println(v);
     }
 }
