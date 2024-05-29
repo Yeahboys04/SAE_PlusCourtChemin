@@ -2,17 +2,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GrapheListe implements Graphe{
-    ArrayList<String> noeuds;
-    ArrayList<Arcs> adjacence;
+public class GrapheListe implements Graphe {
+    private ArrayList<String> noeuds;
+    private ArrayList<Arcs> adjacence;
 
-    public GrapheListe(ArrayList<String> n,ArrayList<Arcs> a){
+    public GrapheListe(ArrayList<String> n, ArrayList<Arcs> a) {
         this.noeuds = n;
-        this.adjacence =a;
+        this.adjacence = a;
     }
 
     public GrapheListe() {
-        this.noeuds= new ArrayList<String>();
+        this.noeuds = new ArrayList<String>();
         this.adjacence = new ArrayList<Arcs>();
 
 
@@ -57,15 +57,15 @@ public class GrapheListe implements Graphe{
     public void ajouterArc(String depart, String destination, double cout) {
         int indArcDep = getIndice(depart);
         int indArcDes = getIndice(destination);
-        if(indArcDep ==-1){
+        if (indArcDep == -1) {
             this.noeuds.add(depart);
             this.adjacence.add(new Arcs());
-            indArcDep =getIndice(depart);
+            indArcDep = getIndice(depart);
         }
-        if(indArcDes == -1){
+        if (indArcDes == -1) {
             this.noeuds.add(destination);
             this.adjacence.add(new Arcs());
-            indArcDes =getIndice(destination);
+            indArcDes = getIndice(destination);
         }
         Arcs dep = this.adjacence.get(indArcDep);
         Arc des = new Arc(destination, cout);

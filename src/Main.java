@@ -15,5 +15,11 @@ public class Main {
         BellmanFord bf = new BellmanFord();
         Valeur v = bf.resoudre(graphe, "A");
         System.out.println(v);
+        System.out.println(v.calculerChemin("E"));
+
+        Dijkstra d= new Dijkstra();
+        Valeur val = d.resoudre(graphe,"A");
+        System.out.println(val.calculerChemin("C"));
+
     }
 }
