@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dijkstra {
+public class Dijkstra implements Algorithme{
     public Valeur resoudre(Graphe g, String depart){
-        ArrayList<String> q =  new ArrayList<>(g.listeNoeuds());
-
+        List<String> q =  new ArrayList<>(g.listeNoeuds());
         int nbNoeuds = q.size();
         Valeur v = new Valeur();
 

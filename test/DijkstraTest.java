@@ -21,7 +21,7 @@ public class DijkstraTest {
 
     @Test
     public void testResoudreCheminMin() {
-        Dijkstra d = new Dijkstra();
+        Algorithme d = new Dijkstra();
         Valeur v = d.resoudre(graphe, "A");
         ArrayList<String> res = new ArrayList<>(v.calculerChemin("C"));
         ArrayList<String> chemin = new ArrayList<>(List.of("A", "B", "E", "D", "C"));
@@ -30,7 +30,7 @@ public class DijkstraTest {
 
     @Test
     public void testResoudreCheminMinVersE() {
-        Dijkstra d = new Dijkstra();
+        Algorithme d = new Dijkstra();
         Valeur v = d.resoudre(graphe, "A");
         ArrayList<String> res = new ArrayList<>(v.calculerChemin("E"));
         ArrayList<String> chemin = new ArrayList<>(List.of("A", "B", "E"));
@@ -39,7 +39,7 @@ public class DijkstraTest {
 
     @Test
     public void testNoeudNonConnecte() {
-        Dijkstra d = new Dijkstra();
+        Algorithme d = new Dijkstra();
         graphe.ajouterArc("F", "G", 5);
         Valeur v = d.resoudre(graphe, "A");
         assertEquals(Double.MAX_VALUE, v.getValeur("F"));
@@ -47,7 +47,7 @@ public class DijkstraTest {
 
     @Test
     public void testGraphAvecCycles() {
-        Dijkstra d = new Dijkstra();
+        Algorithme d = new Dijkstra();
         graphe.ajouterArc("C", "E", 8);
         graphe.ajouterArc("E", "A", 7);
         Valeur v = d.resoudre(graphe, "A");

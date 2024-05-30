@@ -1,0 +1,23 @@
+pointFixe(Graphe : g InOut, Chaine de caractère : depart)
+Début
+
+    L(X) ← +∞ pour chaque chaine X de g
+    parent(X) ← Indéfini pour chaque chaine X de g
+    L(depart) ← 0
+    
+    modifié ← vrai
+    Tant que modifié = vrai faire
+        modifié ← faux
+        Pour chaque chaine X de g faire
+            Pour chaque chaine N adjacent à X faire
+                nouvelleValeur ← L(X) + coût de l'arc (X, N)
+                Si nouvelleValeur < L(N) alors
+                    L(N) ← nouvelleValeur
+                    parent(N) ← X
+                    modifié ← vrai
+                Fin Si
+            Fin Pour
+        Fin Pour
+    Fin Tant que
+    
+Fin

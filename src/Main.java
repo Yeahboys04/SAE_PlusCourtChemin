@@ -17,7 +17,7 @@ public class Main {
         System.out.println(v);
         System.out.println(v.calculerChemin("E"));
 
-        Dijkstra d= new Dijkstra();
+        Algorithme d= new Dijkstra();
         Valeur val = d.resoudre(graphe,"A");
         System.out.println(val.calculerChemin("C"));
 
