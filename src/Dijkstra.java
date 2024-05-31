@@ -1,27 +1,27 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dijkstra implements Algorithme{
-    public Valeur resoudre(Graphe g, String depart){
-        List<String> q =  new ArrayList<>(g.listeNoeuds());
+public class Dijkstra implements Algorithme {
+    public Valeur resoudre(Graphe g, String depart) {
+        List<String> q = new ArrayList<>(g.listeNoeuds());
         int nbNoeuds = q.size();
         Valeur v = new Valeur();
 
-        for(int i=0;i< nbNoeuds;i++){
-            v.setValeur(q.get(i),Double.MAX_VALUE);
+        for (int i = 0; i < nbNoeuds; i++) {
+            v.setValeur(q.get(i), Double.MAX_VALUE);
         }
-        v.setValeur(depart,0);
+        v.setValeur(depart, 0);
 
-        while (!q.isEmpty()){
-            int indMin = minimun(v,q);
+        while (!q.isEmpty()) {
+            int indMin = minimun(v, q);
             String min = q.get(indMin);
             q.remove(indMin);
-            List<Arc> suivants =g.suivants(min);
-            for(Arc arc : suivants){
+            List<Arc> suivants = g.suivants(min);
+            for (Arc arc : suivants) {
                 double d = v.getValeur(min) + arc.getCout();
-                if (d<v.getValeur(arc.getDest())){
-                    v.setValeur(arc.getDest(),d);
-                    v.setParent(arc.getDest(),min);
+                if (d < v.getValeur(arc.getDest())) {
+                    v.setValeur(arc.getDest(), d);
+                    v.setParent(arc.getDest(), min);
                 }
             }
         }
@@ -29,13 +29,13 @@ public class Dijkstra implements Algorithme{
         return v;
     }
 
-    public int minimun(Valeur v,List<String> q){
+    public int minimun(Valeur v, List<String> q) {
         double min = v.getValeur(q.getFirst());
-        int indMin =0;
+        int indMin = 0;
         double val;
-        for(int i=1;i< q.size();i++){
+        for (int i = 1; i < q.size(); i++) {
             val = v.getValeur(q.get(i));
-            if(min>val){
+            if (min > val) {
                 min = val;
                 indMin = i;
             }
@@ -43,7 +43,6 @@ public class Dijkstra implements Algorithme{
         return indMin;
     }
 }
-
 
 
 //Entrees :

@@ -24,6 +24,26 @@ public class MainDijkstra {
         afficherChemin(valeurs, "A", "D");
         afficherChemin(valeurs, "A", "E");
 
+
+
+        GrapheListe g2 = new GrapheListe();
+        g2.ajouterArc("A","G",6);
+        g2.ajouterArc("A","H",2);
+        g2.ajouterArc("B","D",4);
+        g2.ajouterArc("B","I",3);
+        g2.ajouterArc("C","B",3);
+        g2.ajouterArc("C","I",5);
+        g2.ajouterArc("D","E",3);
+        g2.ajouterArc("F","C",3);
+        g2.ajouterArc("F","H",1);
+        g2.ajouterArc("G","D",2);
+        g2.ajouterArc("H","B",1);
+        g2.ajouterArc("H","G",3);
+        g2.ajouterArc("I","E",3);
+        Valeur v2 = dijkstra.resoudre(g2,"A");
+        afficherChemin(v2,"A","F");
+
+
     }
 
     public static void afficherChemin(Valeur valeurs, String depart, String arrivee) {
