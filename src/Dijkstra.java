@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Dijkstra implements Algorithme {
     /**
-     * Résout le problème des plus courts chemins à partir d'un nœud de départ donné.
+     * Résout le problème des plus courts chemins à partir d'un nœud de départ donné avec l'algorithme de Dijkstra.
      * @param g      le graphe représenté par une liste d'adjacence
      * @param depart le nœud de départ
      * @return une instance de Valeur contenant les distances minimales et les parents des nœuds
