@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dijkstra implements Algorithme {
+    /**
+     * Résout le problème des plus courts chemins à partir d'un nœud de départ donné.
+     * @param g      le graphe représenté par une liste d'adjacence
+     * @param depart le nœud de départ
+     * @return une instance de Valeur contenant les distances minimales et les parents des nœuds
+     */
     public Valeur resoudre(Graphe g, String depart) {
         List<String> q = new ArrayList<>(g.listeNoeuds());
         int nbNoeuds = q.size();
@@ -31,6 +37,12 @@ public class Dijkstra implements Algorithme {
         return v;
     }
 
+    /**
+     * renvoie le nœud minimum dans le graphe d'un sous-ensemble de nœuds
+     * @param v Valeur graphe à lire
+     * @param q List<String> sous-ensemble de nœud qui n'ont pas été ajoutées à Dijkstra et qui y sont adjacents
+     * @return int la valeur minimum dans les sommets adjacents à Dijkstra
+     */
     public int minimun(Valeur v, List<String> q) {
         double min = v.getValeur(q.getFirst());
         int indMin = 0;
