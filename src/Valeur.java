@@ -87,6 +87,13 @@ public class Valeur {
         return res;
     }
 
+    /**
+     * Méthode qui renvoie la liste des nœuds dans l'ordre par lesquels on doit passer
+     * pour aller du début à la destination avec le plus court chemin
+     * @param destination String destination du plus court chemin
+     * @return List<String> la liste des sommets dans l'ordre par lequel on doit passer
+     * pour parcourir le graphe le plus rapidement
+     */
     public List<String> calculerChemin(String destination) {
         String precedent = this.getParent(destination);
         List<String> chemin = new ArrayList<>();
