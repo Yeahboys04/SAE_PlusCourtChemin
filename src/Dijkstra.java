@@ -12,6 +12,7 @@ public class Dijkstra implements Algorithme {
         }
         v.setValeur(depart, 0);
 
+        int iterations = 0;
         while (!q.isEmpty()) {
             int indMin = minimun(v, q);
             String min = q.get(indMin);
@@ -23,9 +24,10 @@ public class Dijkstra implements Algorithme {
                     v.setValeur(arc.getDest(), d);
                     v.setParent(arc.getDest(), min);
                 }
+                iterations++;
             }
         }
-
+        System.out.println("Complexité Dijkstra : " + iterations);
         return v;
     }
 
