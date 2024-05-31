@@ -19,20 +19,5 @@ public class Main {
         System.out.println(v);
         System.out.println(v.calculerChemin("E"));
 
-        BellmanFord d = new BellmanFord();
-
-        try {
-            GrapheListe g = new GrapheListe("graphes/Graphe1.txt");
-            Valeur val = d.resoudre(g,"A");
-            System.out.println(val.calculerChemin("1"));
-
-        } catch (FileNotFoundException e){
-            System.err.println("Le fichier est introuvable");
-        }
-        catch (IOException e){
-            System.err.println("Un probleme est survenu lors de la lecture du graphe");
-        }
-
-
     }
 }
